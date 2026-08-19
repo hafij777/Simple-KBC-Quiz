@@ -1,0 +1,38 @@
+def ask_question(question, a, b, c, d, correct):
+    print("\n" + "=" * 40)
+    print("Question:")
+    print(question)
+    print("a.", a)
+    print("b.", b)
+    print("c.", c)
+    print("d.", d)
+    print("=" * 40)
+
+    ans = input("Please select an option (a/b/c/d): ")
+    ans = ans.lower()
+
+    if ans == correct:
+        print("Correct answer! You won $100000")
+        return 100000
+    else:
+        print(f"Wrong answer!,The correct answer is :{correct}")
+        return 0
+
+
+questions = [
+    ["How many hours are there in a day?", "3", "24", "12", "25", "b"],
+    ["What is the capital of Bangladesh?", "Chittagong", "Khulna", "Dhaka", "Rajshahi", "c"],
+    ["How many days are there in a week?", "5", "6", "7", "8", "c"],
+    ["Which planet is known as the Red Planet?", "Earth", "Mars", "Jupiter", "Venus", "b"]
+]
+
+total_money = 0
+
+for q in questions:
+    money = ask_question(q[0], q[1], q[2], q[3], q[4], q[5])
+    total_money = total_money + money
+
+print("\n" + "=" * 40)
+print("Game Over!")
+print("Your total prize money is: $", total_money)
+print("=" * 40)
